@@ -54,7 +54,7 @@ position:absolute;
       z-index: 999;
       border: solid $gold 1px;      
       @include border-radius(90px);     
-      background: transparant;
+      background: transparent;
 
       &:hover {   
         background: $gold;  
