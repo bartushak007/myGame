@@ -9,8 +9,8 @@ $gold: #f1c40f;
           border-radius: $radius;
 }
 @mixin transition($transition) {
-    -moz-transition:    $transition;
-    -o-transition:      $transition;
-    -webkit-transition: $transition;
-    transition:         $transition;
+    -moz-transition: background-color $transition;
+    -o-transition: background-color $transition;
+    -webkit-transition:background-color $transition;
+    transition: background-color $transition;
 }

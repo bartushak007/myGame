@@ -30,7 +30,7 @@ body{
 	@include transition(3s);		
 
 		&:hover {		
-		background: $gold;
+		background-color: $gold;
 		@include transition(0s);
 		}	
 		
@@ -39,27 +39,30 @@ body{
 position:absolute;
 	bottom: 9999px;	
 	&:checked {
-		&~ * .inner-box{
+		& ~ * .inner-box{
 			top: -20px;
 			left:-20px;
 			width: 160px;
 			height: 160px;
 			z-index: 999;
 			border: solid $gold 1px;
+			
 			@include border-radius(90px);			
-			background: none;
+			background: transporant;
 
 				&:hover {		
-					background: $gold;
-					transition: 0s;
+					background: $gold;	
+					@include transition(0s);				
 				}	
 		}
-		&~ .box{
+
+		& ~ .box{
 			background: $b-l-dark;
 		}
-		&+ .check:before {
+
+		& + .check:before {
 			background: #f1c40f;
-			border-radius: 15px;
+			@include border-radius(15px);
 		}
 	}	
 }
@@ -69,17 +72,18 @@ position:absolute;
 	right: 15%;
 	font-size: 33px;
 	top:33px;
-		&:before {
-			content: "";
-			position: absolute;
-			top: 14px;
-			left: -34px;
-			width: 15px;
-			height: 15px;
-			border: none;
-			border-radius: 0;
-			background-color: $b-v-dark;	
-		}
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 14px;
+		left: -34px;
+		width: 15px;
+		height: 15px;
+		border: none;
+		@include border-radius(0);
+		background-color: $b-v-dark;	
+	}		
 }
 
 
