@@ -1,89 +1,95 @@
 body{
-	background: $b-l-dark;
+  background: $b-l-dark;
 }
 
 .wrapper {
-	max-width: 1219px;
-	margin: 0 auto;
+  max-width: 1219px;
+  margin: 0 auto;
 }
 
-.container {	
-	padding-top: 100px;	
-	display: grid;
-	grid-gap: 15px;
-	grid-template-columns: repeat(auto-fill, 80px);
-	grid-template-rows:  repeat(auto-fill, 80px);	
+.container {  
+  padding-top: 100px; 
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fill, $box-width);
+  grid-template-rows:  repeat(auto-fit, $box-width);  
+
 }
 
 .box{
-	background: $b-v-dark;
-	position: relative;	
-	@include border-radius(3px);
-	height: 80px;
+  background: $b-v-dark;
+  position: relative; 
+  @include border-radius(3px);
+  height: $box-width;
+  width: $box-width;
 }
 
 .inner-box {
-	position: absolute;
-	width: 80px;
-	height: 80px;
-	@include border-radius(3px);
-	@include transition(3s);		
+  position: absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
 
-		&:hover {		
-		background-color: $gold;
-		@include transition(0s);
-		}	
-		
+  @include border-radius(3px);
+  @include transition($time-down);    
+
+    &:hover {   
+    background-color: $gold;
+    @include transition(0s);
+    } 
+    
 }
 .checkbox {
 position:absolute;
-	bottom: 9999px;	
-	&:checked {
-		& ~ * .inner-box{
-			top: -20px;
-			left:-20px;
-			width: 160px;
-			height: 160px;
-			z-index: 999;
-			border: solid $gold 1px;
-			
-			@include border-radius(90px);			
-			background: transporant;
+  bottom: 9999px; 
+  
+  &:checked {
+    
+    & ~ .box .inner-box{
+      top: -20px;
+      left:-20px;
+      width: $box-width*2;
+      height: $box-width*2;
+      z-index: 999;
+      border: solid $gold 1px;      
+      @include border-radius(90px);     
+      background: transparant;
 
-				&:hover {		
-					background: $gold;	
-					@include transition(0s);				
-				}	
-		}
+      &:hover {   
+        background: $gold;  
+        @include transition(0s);        
+      } 
+    }
 
-		& ~ .box{
-			background: $b-l-dark;
-		}
+    & ~ .box{
+      background: $b-l-dark;
+    }
 
-		& + .check:before {
-			background: #f1c40f;
-			@include border-radius(15px);
-		}
-	}	
+    & + .check:before {
+      background: #f1c40f;
+      @include border-radius(15px);
+    }
+  } 
 }
 
 .check {
-	position: absolute;
-	right: 15%;
-	font-size: 33px;
-	top:33px;
+  position: absolute;
+  right: 15%;
+  font-size: 33px;
+  top:33px;
 
-	&:before {
-		content: "";
-		position: absolute;
-		top: 14px;
-		left: -34px;
-		width: 15px;
-		height: 15px;
-		border: none;
-		@include border-radius(0);
-		background-color: $b-v-dark;	
-	}		
+  &:before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: -34px;
+    width: 15px;
+    height: 15px;
+    border: none;
+    @include border-radius(0);
+    background-color: $b-v-dark;  
+  }   
 }
 
 
