@@ -12,16 +12,15 @@ body{
   display: grid;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fill, $box-width);
-  grid-template-rows:  repeat(auto-fit, $box-width);  
-
+  grid-template-rows:  repeat(auto-fit, $box-width);
 }
 
 .box{
   background: $b-v-dark;
-  position: relative; 
-  @include border-radius(3px);
+  position: relative;  
   height: $box-width;
   width: $box-width;
+  @include border-radius(3px);
 }
 
 .inner-box {
@@ -30,31 +29,30 @@ body{
   right:0;
   bottom:0;
   left:0;
-
   @include border-radius(3px);
   @include transition($time-down);    
 
-    &:hover {   
-    background-color: $gold;
-    @include transition(0s);
-    } 
-    
+  &:hover {   
+  background-color: $gold;
+  @include transition(0s);
+  }    
 }
+
 .checkbox {
-position:absolute;
+  position:absolute;
   bottom: 9999px; 
   
   &:checked {
     
     & ~ .box .inner-box{
       top: -20px;
-      left:-20px;
-      width: $box-width*2;
-      height: $box-width*2;
+      right: -20px;
+              bottom: -20px;      
+      left: -20px;
       z-index: 999;
-      border: solid $gold 1px;      
-      @include border-radius(90px);     
+      border: solid $gold 1px;          
       background: transparent;
+      @include border-radius(90px); 
 
       &:hover {   
         background: $gold;  
@@ -86,9 +84,9 @@ position:absolute;
     left: -34px;
     width: 15px;
     height: 15px;
-    border: none;
-    @include border-radius(0);
-    background-color: $b-v-dark;  
+    border: none;    
+    background-color: $b-v-dark;
+    @include border-radius(0);  
   }   
 }
 
